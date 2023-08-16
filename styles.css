@@ -10,6 +10,15 @@
 
 }
 
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+
 /*General*/
 
 :root {
@@ -96,6 +105,12 @@ footer {
     column-gap: 5px;
 }
 
+.about-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*IDs*/
 
 #photo{
@@ -112,7 +127,24 @@ footer {
 #about-me-paragraph{
     font-size: 25px;
     text-align: left;
-    padding-left: 25px;
+    float: left;
+    margin-left: 20px;
+    /*display : grid;*/
+}
+
+#hot {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+#controller{
+    width: 30%;
+    height: auto; 
+    float: right;
+    margin-left: 10px;
+}
+
+#credit {
+    text-align: left;
 }
 
 /*
