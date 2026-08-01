@@ -1,10 +1,14 @@
 //I despise that I'm still using this repulsive language
 
 const BOOTUP_SFX = new Audio("Assets/Bootup.mp3");
+const CLICK_SFX = new Audio("Assets/KeyClick.mp3");
+const ENTER_SFX = new Audio("Assets/EnterKey.mp3");
 const BLOCK_CURSOR = document.getElementById("BlockCursorImage");
+
 
 var startTime = Date.now();
 var interactedWithPage = false;
+var loopContinue = false;
 
 function copyToClipboard(input) {
   //for email cause HTML reads '@' as special character
@@ -21,6 +25,20 @@ function Wait(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+async function EnterAnimationAfterWaiting(){
+  console.log("we get here");
+  // new Audio(ENTER_SFX.src).play();
+
+  const audio = new Audio(ENTER_SFX.src);
+
+  try {
+    await audio.play();
+    console.log("playing");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 async function BootSequence() {
   //needed so duration isn't null
   await new Promise((resolve) => {
@@ -31,7 +49,33 @@ async function BootSequence() {
   document.querySelector(".navbar").classList.remove("hidden");
 }
 
-//main()
+async function Main(){
+  //code from Brian for typewriter effect
+  var nameElement = document.getElementById("name");
+  let nameState = "";
+  nameElement.innerHTML = nameState;
+  const nameLetters = ["P", "a", "t", "r", "i", "c", "k", " ", "M", "a", "y", "e", "r"];
+
+  const TYPERITER_TIME = 150;
+  const intervalId = setInterval(() => {
+    nameState += nameLetters.shift();
+    nameElement.innerHTML = nameState;
+
+    if (nameLetters.length === 0) {
+      clearInterval(intervalId);
+    }
+
+    new Audio(CLICK_SFX.src).play();
+  }, TYPERITER_TIME);
+
+  setTimeout(() => {
+    EnterAnimationAfterWaiting(); //this is unfortunately how we have to do this in JS
+  }, 1000);
+
+
+  BOOTUP_SFX.addEventListener;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   BOOTUP_SFX.preload = "auto";
   //BLOCK_CURSOR.style.left = "400px";
@@ -56,18 +100,4 @@ document.addEventListener("click", async () => {
   interactedWithPage = true;
 });
 
-const nameEl = document.getElementById("name");
-let nameState = "";
-nameEl.innerHTML = nameState;
-const nameLetters = ["P", "a", "t", "r", "i", "c", "k"];
-
-const intervalId = setInterval(() => {
-  nameState += nameLetters.shift();
-  nameEl.innerHTML = nameState;
-
-  if (nameLetters.length === 0) {
-    clearInterval(intervalId);
-  }
-}, 1000);
-
-BOOTUP_SFX.addEventListener;
+Main();
