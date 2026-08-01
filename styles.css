@@ -49,6 +49,7 @@ body {
 :root {
   --photoColor: rgba(2, 2, 2, 1);
   --navColor: rgba(0, 212, 14, 0.444);
+  --terminalColor: #38f305;
 }
 
 html {
@@ -216,7 +217,15 @@ section {
 
 #cursor {
   display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  background-color: #fff;
+  width: calc(0.4rem * 2);
+  height: calc(0.75rem * 2);
+  background-color: white;
+}
+
+#name {
+  color: var(--terminalColor);
+}
+
+#introTerminal span {
+  font-size: 2rem;
 }

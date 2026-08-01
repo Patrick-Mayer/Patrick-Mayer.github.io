@@ -29,37 +29,11 @@ async function Typewriter(messageStr, delay, nameElement, nameState){
   nameElement.innerHTML = nameState;
  
   for (const letter of messageStr){ 
-    //nameState += nameLetters.shift();
     nameElement.innerHTML += letter;
     new Audio(CLICK_SFX.src).play();
 
     await Wait(delay);
  }
-}
-//   const intervalId = setInterval(() => {
-//     nameState += nameLetters.shift();
-//     nameElement.innerHTML = nameState;
-
-//     if (nameLetters.length === 0) {
-//       clearInterval(intervalId);
-//     }
-
-//     new Audio(CLICK_SFX.src).play();
-//   }, TYPERITER_TIME);
-// }
-
-async function EnterAnimationAfterWaiting(){
-  console.log("we get here");
-  // new Audio(ENTER_SFX.src).play();
-
-  const audio = new Audio(ENTER_SFX.src);
-
-  try {
-    await audio.play();
-    console.log("playing");
-  } catch (err) {
-    console.error(err);
-  }
 }
 
 async function BootSequence() {
@@ -72,36 +46,29 @@ async function BootSequence() {
   document.querySelector(".navbar").classList.remove("hidden");
 }
 
-const nameLetters = ["P", "a", "t", "r", "i", "c", "k", " ", "M", "a", "y", "e", "r"];
-
 async function Main(){
   //code from Brian for typewriter effect
-  const NAME_STR = "MyRealName";
+  const NAME_STR = "Patrick Mayer";
   const TYPEWRITER_TIME = 150;
   var nameElement = document.getElementById("name");
-  let nameState = "";
-  await Typewriter(NAME_STR, TYPEWRITER_TIME, nameElement, nameState)
+  let nameState = "C:\\Users\\GoodMorning>~";
+  //let nameState = "~\t";
+  //nameElement += "~\t"
+  await Typewriter(NAME_STR, TYPEWRITER_TIME, nameElement, nameState);
 
+  await Wait(1000);
 
-  // const intervalId = setInterval(() => {
-  //   nameState += nameLetters.shift();
-  //   nameElement.innerHTML = nameState;
+  //all other enter code will go here. You'll want to shift the cursor down to the bottom where it's supposed to be
+  new Audio(ENTER_SFX.src).play();
 
-  //   if (nameLetters.length === 0) {
-  //     clearInterval(intervalId);
-  //   }
-
-  //   new Audio(CLICK_SFX.src).play();
-  // }, TYPERITER_TIME);
-
-  setTimeout(() => {
-    EnterAnimationAfterWaiting(); //this is unfortunately how we have to do this in JS
-  }, 1000);
 
 
   BOOTUP_SFX.addEventListener;
 }
 
+
+
+//driver code that calls Main()
 document.addEventListener("DOMContentLoaded", () => {
   BOOTUP_SFX.preload = "auto";
   //BLOCK_CURSOR.style.left = "400px";
@@ -109,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   BootSequence(); //needs to be it's own function cause of async
 });
-
 document.addEventListener("click", async () => {
   if (interactedWithPage) {
     return;
