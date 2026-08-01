@@ -1,122 +1,174 @@
 <!--
-    !Add alts to every image for SEO!
-    !Add fire effect to "White hot passion"!
+TODO:
+    1. Make the cursor green (either in code or in photoshop)
+    2. Make the cursor a DOM child of some kind of line buffer that you'll use for the typewriter effect. The idea is that
+       the cursor will follow the text as it's being displayed, pause for a moment (but continue blinking), and then jump
+       down to a new line and display the next one. It should display "patrick mayer", then jump to new line, then "Game
+       devloper."
 -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patrick Mayer's Website</title>
-    <link rel="stylesheet" href="styles.css">
-    
-    <!--Doesn't work with new icons-->
-    <script src="https://kit.fontawesome.com/6ec0277249.js" crossorigin="anonymous"></script>
-    <!--Doesn't work with new icons-->
-    
-    <script type="text/javascript" src="app.js"></script>
-    </head>
+    <link rel="stylesheet" href="styles.css" />
 
-<body>
+    <!--Doesn't work with new icons-->
+    <script
+      src="https://kit.fontawesome.com/6ec0277249.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <div class="navbar">
-        <nav>
-            <ul>
-                <li><a href=index.html#home>Home</a></li>
-                <li><a href=index.html#projects>Projects</a></li>
-                <li><a href=index.html#resume>Resume</a></li>
-            </ul>
-        </nav>
+    <script src="app.js" defer></script>
+  </head>
+
+  <body>
+    <div>
+      <span id="name"></span>
+      <span id="cursor"></span>
     </div>
+    <div class="container hidden">
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+        </ul>
+      </nav>
 
-    <!-- The class "left-right" is using the animation -->
-    <section id="home">
-        <h1 class="left-right" style="padding-top: 10px; padding-bottom: 0px; padding-right: 0px; padding-left: 100px; z-index: 5;">
-        Patrick Mayer
+      <!-- The class "left-right" is using the animation -->
+      <section id="home">
+        <img src="Assets/BlockCursor.png" id="BlockCursorImage" />
+        <h1
+          class="left-right"
+          style="
+            padding-top: 10px;
+            padding-bottom: 0px;
+            padding-right: 0px;
+            padding-left: 100px;
+            z-index: 5;
+          "
+        >
+          Patrick Mayer
         </h1>
-        <h2 class="left-right" style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px; padding-left: 100px;">
-        -Game Development Student-
+        <h2
+          class="left-right"
+          style="
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-right: 0px;
+            padding-left: 100px;
+          "
+        >
+          -Game and Software Developer-
         </h2>
-        <img src="/Assets/Professional Picture.jpg" alt="Picture of me" id="photo" class="left-right">
-    </section>
+        <img
+          src="/Assets/Professional Picture.jpg"
+          alt="Picture of me"
+          id="photo"
+          class="left-right"
+        />
+      </section>
 
-    <!--Empty Space-->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <section id="about-me">
-        <p id="about-me-paragraph"> <img src="/Assets/Game Controller.jpg" alt="SEGA Genesis Game Controller" id="controller">
-    My name is Patrick Mayer, and I am an <b>aspiring game developer</b> studying
-    computer science at <u>Florida Polytechnic University.</u> From a very young age, 
-    I started getting into video games. It didn't take long for me to develop a <span id="hot"><strong><u><i>white-hot</i></u></strong></span> 
-    passion for video 
-    games, and that passion eventually turned into a passion for <span style="color: rgb(255, 28, 28);">game development!</span>
-    Games don't make themselves, so I began learning programming in high school
-    after being exposed to basic HTML and CSS website development in middle school.
-    As my love for programming developed, I broadened my interests to
-    include sectors of C.S. other than game development, such as <span style="color: blue">web development</span>,
-    <span style="color: orange">operating systems</span>, and <span style="color: green">assembly programming</span>.
+      <section id="about-me">
+        <p id="about-me-paragraph">
+          <img
+            src="/Assets/Game Controller.jpg"
+            alt="SEGA Genesis Game Controller"
+            id="controller"
+          />
+          My name is Patrick Mayer, and I'm a game developer who is obsessed
+          with creating entertaining systems. I started playing games when I was
+          very little, and it didn't take long for me to develop a
+          <span id="hot">
+            <strong
+              ><u><i>white-hot</i></u></strong
+            ></span
+          >
+          passion for them. This passion turned into a passion for game
+          development, so I began learning programming in high school after
+          being exposed to basic web design, Scratch, and the Alice game engine
+          in middle school. As my passion for programming intensified, I
+          broadened my interests to include
+          <span style="color: blue">retro game programming with assembly</span>,
+          <span style="color: orange">tools programming</span>, and
+          <span style="color: green">game dev math</span>.
         </p>
+      </section>
 
-    </section>
-
-    <section id="projects" class="center">
+      <section id="projects" class="center">
         <h1>These are my projects</h1>
-    </section>
+      </section>
 
-    <section id="resume" class="center">
+      <section id="resume" class="center">
         <h1>Resume</h1>
-        <embed src="/Assets/Resume 2023.pdf" width="800px" height="700px">
+        <embed src="/Assets/Resume2026.pdf" width="800px" height="700px" />
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-        <h3 id="credit"> Credit to Coldheat007 on DeviantArt for the incredible SEGA Genesis artwork, and W3 schools for the 
-        web-dev learning material and free animations!
+        <h3 id="credit">
+          Credit to Coldheat007 on DeviantArt for the SEGA Genesis art, W3
+          schools for the web-dev learning material and animations,
+          bittermelonheart(Freesound) for the computer sfx, and Kenny for the
+          cursor art.
         </h3>
-    </section>
-   
+      </section>
 
-    <!--Just use duck duck go images, don't use font awesome, downloads don't work. Get rid of file extension-->
-    
-    <footer id="links" class="center">
+      <!--Just use duck duck go images, don't use font awesome, downloads don't work. Get rid of file extension-->
+      <footer id="links" class="center">
         <div class="grid-container">
-            <div class="grid-item">
-                <a href="https://github.com/Patrick-Mayer"><img src="/Assets/Github Logo" alt="My Github Profile" class="footer-images" 
-                width="50px" height="auto"></a>
-            </div>
-            <div class="grid-item">
-                <a href="https://virtualnerd1.itch.io/"><img src="/Assets/Itch Logo" alt="My Itch.io Profile" class="footer-images" 
-                width="35px" height="auto"></a>
-            </div>
-            <div class="grid-item">
-                <a href="https://www.linkedin.com/in/patrick-mayer-071a721a1/"><img src="/Assets/Linkedin Logo" alt="My Linkedin Profile" 
-                class="footer-images" width="30px" height="auto"></a>
-            </div>
-            <div class="grid-item">
-                <img id="email" onclick="copyToClipboard('e')" src="/Assets/Email Logo" alt="My Email" 
-                class="footer-images" width="40px" height="auto">
-            </div>
+          <div class="grid-item">
+            <a href="https://github.com/Patrick-Mayer"
+              ><img
+                src="/Assets/Github Logo"
+                alt="My Github Profile"
+                class="footer-images"
+                width="50px"
+                height="auto"
+            /></a>
+          </div>
+          <div class="grid-item">
+            <a href="https://virtualnerd1.itch.io/"
+              ><img
+                src="/Assets/Itch Logo"
+                alt="My Itch.io Profile"
+                class="footer-images"
+                width="35px"
+                height="auto"
+            /></a>
+          </div>
+          <div class="grid-item">
+            <a href="https://www.linkedin.com/in/patrick-mayer-071a721a1/"
+              ><img
+                src="/Assets/Linkedin Logo"
+                alt="My Linkedin Profile"
+                class="footer-images"
+                width="30px"
+                height="auto"
+            /></a>
+          </div>
+          <div class="grid-item">
+            <img
+              id="email"
+              onclick="copyToClipboard('e')"
+              src="/Assets/Email Logo"
+              alt="My Email"
+              class="footer-images"
+              width="40px"
+              height="auto"
+            />
+          </div>
         </div>
-    </footer>
-
-</body>
+      </footer>
+    </div>
+  </body>
 </html>

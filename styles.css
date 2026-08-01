@@ -1,150 +1,197 @@
-/*Keyframes*/
+:root {
+  --space-m: 1rem;
+  --space-xl: 4rem;
+}
 
+body {
+  font-size: 12px;
+  color: #fff;
+}
+
+/*The @ declarations are CSS keywords, so you can't rename them to whatever you want*/
 @keyframes fromLeft {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
-
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 @-webkit-keyframes glow {
-    from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-    }
-    to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-    }
+  from {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 30px #e60073,
+      0 0 40px #e60073,
+      0 0 50px #e60073,
+      0 0 60px #e60073,
+      0 0 70px #e60073;
   }
+  to {
+    text-shadow:
+      0 0 20px #fff,
+      0 0 30px #ff4da6,
+      0 0 40px #ff4da6,
+      0 0 50px #ff4da6,
+      0 0 60px #ff4da6,
+      0 0 70px #ff4da6,
+      0 0 80px #ff4da6;
+  }
+}
 
-/*General*/
+@font-face {
+  font-family: "FalloutFont";
+  src: url("Assets/Overseer.otf") format("opentype");
+}
 
 :root {
-    --photoColor: rgba(2, 2, 2, 1);
-    --navColor: darkblue;
+  --photoColor: rgba(2, 2, 2, 1);
+  --navColor: rgba(0, 212, 14, 0.444);
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-
-html, body {
-    /*Gets rid of horizontal space to the right*/
-    max-width: 100%;
-    overflow-x: hidden;
+html,
+body {
+  /*Gets rid of horizontal space to the right*/
+  max-width: 100%;
+  overflow-x: hidden;
+  cursor: url("Assets/FalloutCursor.png"), auto;
+  background-color: black;
 }
 
-h1{
-    font-size: 115px;
+h1 {
+  font-size: 115px;
 }
 
-h2{
-    font-size: 50px;
+h2 {
+  font-size: 50px;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 a:hover {
-    padding-bottom: 10px;
-    color: red;
-    border-bottom: 1px red solid;
+  padding-bottom: 10px;
+  color: rgb(34, 254, 0);
+  border-bottom: 1px rgb(34, 254, 0);
 }
 
 footer {
-    display: inline-block;
+  display: inline-block;
 }
 
 /*Classes*/
-
+/*Add this to whatever you need to be hidden on bootup. The idea is everything we need to be hidden will have hidden as
+a class by default, and then we'll remove it after the bootup plays.*/
+.hidden {
+  display: none !important;
+}
 
 .left-right {
-    animation: fromLeft 2s ease; 
+  animation: fromLeft 2s ease;
 }
 
 .navbar {
-    margin: 0;
-    padding: 0;
-    background-color: var(--navColor);
-    height : 50px;
-    justify-content: center;
-    display: flex;
-    flex-wrap : wrap;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: var(--navColor);
+  height: 3vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  font-family: "FalloutFont", sans-serif;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navbar ul {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar a {
-    padding: 20px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: "FalloutFont", sans-serif;
+  font-size: 200%;
 }
 
 .center {
-    text-align: center;
-    align-items: center;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
 
 .grid-container {
-    display: grid;
-    grid-auto-flow: column;
-    column-gap: 5px;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 5px;
 }
 
 .about-me {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: "FalloutFont", default;
 }
 
 /*IDs*/
-
-#photo{
-    position: relative;
-    width : 40%;
-    height : auto;
-    border-radius: 25%;
-    border: 5px solid var(--photoColor);
-    float: right;
-    top: -300px;
-    z-index: -1;
+#photo {
+  position: relative;
+  width: 40%;
+  height: auto;
+  border-radius: 25%;
+  border: 5px solid var(--photoColor);
+  float: right;
+  top: -300px;
+  z-index: -1;
 }
 
-#about-me-paragraph{
-    font-size: 25px;
-    text-align: left;
-    float: left;
-    margin-left: 20px;
-    /*display : grid;*/
+#about-me-paragraph {
+  font-size: 25px;
+  text-align: left;
+  float: left;
+  margin-left: 20px;
+  /*display : grid;*/
 }
 
 #hot {
-    animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
 
-#controller{
-    width: 30%;
-    height: auto; 
-    float: right;
-    margin-left: 10px;
+#controller {
+  width: 30%;
+  height: auto;
+  float: right;
+  margin-left: 10px;
 }
 
 #credit {
-    text-align: left;
+  text-align: left;
 }
 
 /*
@@ -152,3 +199,24 @@ footer {
 Don't adjust size, that should be inline
 }
 */
+
+section {
+  border: 1px solid red;
+  padding: var(--space-m);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+#home {
+  margin-bottom: var(--space-xl);
+}
+
+#cursor {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-color: #fff;
+}
