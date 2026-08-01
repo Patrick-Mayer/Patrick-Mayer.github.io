@@ -25,6 +25,29 @@ function Wait(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+async function Typewriter(messageStr, delay, nameElement, nameState){
+  nameElement.innerHTML = nameState;
+ 
+  for (const letter of messageStr){ 
+    //nameState += nameLetters.shift();
+    nameElement.innerHTML += letter;
+    new Audio(CLICK_SFX.src).play();
+
+    await Wait(delay);
+ }
+}
+//   const intervalId = setInterval(() => {
+//     nameState += nameLetters.shift();
+//     nameElement.innerHTML = nameState;
+
+//     if (nameLetters.length === 0) {
+//       clearInterval(intervalId);
+//     }
+
+//     new Audio(CLICK_SFX.src).play();
+//   }, TYPERITER_TIME);
+// }
+
 async function EnterAnimationAfterWaiting(){
   console.log("we get here");
   // new Audio(ENTER_SFX.src).play();
@@ -49,24 +72,27 @@ async function BootSequence() {
   document.querySelector(".navbar").classList.remove("hidden");
 }
 
+const nameLetters = ["P", "a", "t", "r", "i", "c", "k", " ", "M", "a", "y", "e", "r"];
+
 async function Main(){
   //code from Brian for typewriter effect
+  const NAME_STR = "MyRealName";
+  const TYPEWRITER_TIME = 150;
   var nameElement = document.getElementById("name");
   let nameState = "";
-  nameElement.innerHTML = nameState;
-  const nameLetters = ["P", "a", "t", "r", "i", "c", "k", " ", "M", "a", "y", "e", "r"];
+  await Typewriter(NAME_STR, TYPEWRITER_TIME, nameElement, nameState)
 
-  const TYPERITER_TIME = 150;
-  const intervalId = setInterval(() => {
-    nameState += nameLetters.shift();
-    nameElement.innerHTML = nameState;
 
-    if (nameLetters.length === 0) {
-      clearInterval(intervalId);
-    }
+  // const intervalId = setInterval(() => {
+  //   nameState += nameLetters.shift();
+  //   nameElement.innerHTML = nameState;
 
-    new Audio(CLICK_SFX.src).play();
-  }, TYPERITER_TIME);
+  //   if (nameLetters.length === 0) {
+  //     clearInterval(intervalId);
+  //   }
+
+  //   new Audio(CLICK_SFX.src).play();
+  // }, TYPERITER_TIME);
 
   setTimeout(() => {
     EnterAnimationAfterWaiting(); //this is unfortunately how we have to do this in JS
