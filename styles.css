@@ -229,3 +229,9 @@ section {
 #introTerminal span {
   font-size: 2rem;
 }
+
+#cpuDisplay {
+  min-width: 100px;
+  min-height: 100px;
+  position: sticky;
+}

@@ -25,7 +25,7 @@ function Wait(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-async function Typewriter(messageStr, delay, nameElement, nameState){
+async function Typewriter(messageStr, delay, nameElement, nameState){  
   nameElement.innerHTML = nameState;
  
   for (const letter of messageStr){ 
@@ -55,6 +55,23 @@ async function Main(){
   //let nameState = "~\t";
   //nameElement += "~\t"
   await Typewriter(NAME_STR, TYPEWRITER_TIME, nameElement, nameState);
+
+
+  //Render CPU Usage Number (make this look fancier so it looks more like a terminal)
+  setInterval(() => {
+    let cpuUsage = document.getElementById("cpuDisplay");
+    const RAND_NUM = Math.ceil(Math.random() * 100)
+    cpuUsage.innerHTML = ("CPU USAGE: " + RAND_NUM + "%");
+
+    if (RAND_NUM < 25){
+      cpuUsage.style = "color:gray";
+    }else if (RAND_NUM < 50){
+      cpuUsage.style = "color:yellow";
+    }else{
+      cpuUsage.style = "color:red";
+    }
+  }, 2000);
+    
 
   await Wait(1000);
 
